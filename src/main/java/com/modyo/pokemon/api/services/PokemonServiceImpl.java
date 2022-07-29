@@ -98,8 +98,6 @@ public class PokemonServiceImpl implements PokemonService {
 	    	item.setPokemonInfo(this.getItemForId(item.getID()));
 	    	
 	    	lista.set(i, item);
-	    	
-	        System.out.println(i);
 	    }
 	  
 	    return resultado;
