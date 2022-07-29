@@ -45,11 +45,11 @@ public class pokemonController {
 	@ResponseBody
 	public Pokemon getPokemonFull(
 			@Parameter(description = "Posición Inicial de paginado") @RequestParam String offset, 
-			@Parameter(description = "Cantidad a mostrar (máx 20)") @RequestParam String limit) {
+			@Parameter(description = "Cantidad a mostrar (máx 8)") @RequestParam String limit) {
 		
 		Long _offset = convertStringToLong(offset, 0l);
 		Long _limit  = convertStringToLong(limit, 8l);
-		if (_limit > 20l) { _limit = 20l; };
+		if (_limit > 8l) { _limit = 8l; };
 		
 		System.out.println(_limit);
 		System.out.println(_offset);
