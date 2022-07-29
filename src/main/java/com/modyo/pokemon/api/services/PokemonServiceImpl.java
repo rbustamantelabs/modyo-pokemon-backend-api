@@ -67,8 +67,7 @@ public class PokemonServiceImpl implements PokemonService {
 	    	
 	    	resultado.setPrevious(_previous);
 	    }
-	    
-	  
+	    	  
 	    return resultado;
 	}
 	
@@ -76,6 +75,20 @@ public class PokemonServiceImpl implements PokemonService {
 	public Pokemon getListFull(Long offset, Long limit)
 	{   
 	    Pokemon resultado = this.getList(offset, limit);
+	    
+	    String _next = resultado.getNext();
+	    if (_next != null) {
+	    	_next = _next.replace("pokemon?", "pokemonfull?");
+	    	resultado.setNext(_next);
+	    }
+	    
+	    if (resultado.getPrevious() != null) {
+	    	String _previous = (String)resultado.getPrevious();
+	    		   
+	    	_previous = _previous.replace("pokemon?", "pokemonfull?");
+	    	
+	    	resultado.setPrevious(_previous);
+	    }
 	    
 	    List<SmallPokemon> lista = resultado.getResults();
 	    
